@@ -22,7 +22,7 @@ import javax.swing.SwingUtilities;
 import com.polydes.scenelink.data.Link;
 import com.polydes.scenelink.data.LinkModel;
 import com.polydes.scenelink.data.LinkPageModel;
-import com.polydes.scenelink.res.Resources;
+import com.polydes.scenelink.io.Images;
 import com.polydes.scenelink.util.ColorUtil;
 import com.polydes.scenelink.util.CursorUtil;
 
@@ -160,7 +160,7 @@ public class LinkPage extends JComponent implements MouseMotionListener, MouseLi
 		width = model.getSize().width;
 		height = model.getSize().height;
 		bgColor = model.getBgColor();
-		bgImage = Resources.getImage(model.getBgImage());
+		bgImage = Images.getImage(model.getBgImage());
 		bgImagePos = model.getBgImagePos();
 		gridX = model.getGridOffset().x;
 		gridY = model.getGridOffset().y;
@@ -903,7 +903,7 @@ public class LinkPage extends JComponent implements MouseMotionListener, MouseLi
 		else if(propName.equals("bgColor"))
 			bgColor = model.getBgColor();
 		else if(propName.equals("bgImage"))
-			bgImage = Resources.getImage(model.getBgImage());
+			bgImage = Images.getImage(model.getBgImage());
 		else if(propName.equals("bgImagePos"))
 			bgImagePos = model.getBgImagePos();
 		else if(propName.equals("gridOffset"))

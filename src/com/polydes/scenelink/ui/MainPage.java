@@ -21,20 +21,22 @@ import javax.swing.JComboBox;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
+import com.jidesoft.swing.PaintPanel;
+import com.polydes.common.res.ResourceLoader;
+import com.polydes.common.res.Resources;
+import com.polydes.scenelink.SceneLinkExtension;
+import com.polydes.scenelink.data.LinkPageModel;
+import com.polydes.scenelink.ui.combos.PageComboModel;
+
 import stencyl.sw.lnf.Theme;
 import stencyl.sw.util.UI;
 import stencyl.sw.util.Util;
 import stencyl.sw.util.comp.GroupToggleButton;
 
-import com.jidesoft.swing.PaintPanel;
-import com.polydes.scenelink.SceneLinkExtension;
-import com.polydes.scenelink.data.LinkPageModel;
-import com.polydes.scenelink.res.Resources;
-import com.polydes.scenelink.ui.combos.PageComboModel;
-
-
 public class MainPage extends JPanel
 {
+	private static Resources res = ResourceLoader.getResources("com.polydes.scenelink");
+	
 	private static MainPage _instance = null;
 	
 	private HashMap<Integer, LinkPage> pages = null;
@@ -142,17 +144,17 @@ public class MainPage extends JPanel
 		leftBar.setLayout(new FlowLayout(FlowLayout.CENTER, 0, 3));
 		
 		AbstractButton viewButton = createToggleButton();
-		viewButton.setIcon(Resources.loadIcon("buttons/view_link.png"));
+		viewButton.setIcon(res.loadIcon("buttons/view_link.png"));
 		leftBar.add(viewButton);
 		toolGroup.add(viewButton);
 		
 		AbstractButton createButton = createToggleButton();
-		createButton.setIcon(Resources.loadIcon("buttons/create_link.png"));
+		createButton.setIcon(res.loadIcon("buttons/create_link.png"));
 		leftBar.add(createButton);
 		toolGroup.add(createButton);
 		
 		AbstractButton selectButton = createToggleButton();
-		selectButton.setIcon(Resources.loadIcon("buttons/select_link.png"));
+		selectButton.setIcon(res.loadIcon("buttons/select_link.png"));
 		leftBar.add(selectButton);
 		toolGroup.add(selectButton);
 		

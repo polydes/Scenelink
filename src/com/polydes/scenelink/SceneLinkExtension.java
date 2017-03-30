@@ -9,8 +9,8 @@ import javax.swing.JPanel;
 
 import com.polydes.scenelink.data.LinkModel;
 import com.polydes.scenelink.data.LinkPageModel;
+import com.polydes.scenelink.io.Images;
 import com.polydes.scenelink.io.XML;
-import com.polydes.scenelink.res.Resources;
 import com.polydes.scenelink.ui.MainPage;
 import com.polydes.scenelink.ui.combos.PageComboModel;
 import com.polydes.scenelink.util.ColorUtil;
@@ -99,7 +99,7 @@ public class SceneLinkExtension extends GameExtension
 		resourcesFolder = openFolder(new File(getDataFolder(), "resources"));
 		pagesFolder = openFolder(new File(getDataFolder(), "pages"));
 		
-		Resources.loadResourceNames();
+		Images.loadResourceNames();
 		
 		pages = new HashMap<Integer, LinkPageModel>();
 		

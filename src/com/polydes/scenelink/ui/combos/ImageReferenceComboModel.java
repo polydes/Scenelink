@@ -4,8 +4,7 @@ import java.util.ArrayList;
 
 import javax.swing.DefaultComboBoxModel;
 
-import com.polydes.scenelink.res.Resources;
-
+import com.polydes.scenelink.io.Images;
 
 public class ImageReferenceComboModel extends DefaultComboBoxModel<String>
 {
@@ -20,7 +19,7 @@ public class ImageReferenceComboModel extends DefaultComboBoxModel<String>
 	
 	public static void updateImages()
 	{
-		ArrayList<String> a = Resources.getResourceNames();
+		ArrayList<String> a = Images.getResourceNames();
 		imageNames = new String[a.size() + 1];
 		imageNames[0] = UNSELECTED;
 		int i = 1;

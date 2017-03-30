@@ -8,11 +8,13 @@ import java.util.HashMap;
 
 import javax.swing.JComponent;
 
-import com.polydes.scenelink.res.Resources;
-
+import com.polydes.common.res.ResourceLoader;
+import com.polydes.common.res.Resources;
 
 public class CursorUtil
 {
+	private static Resources res = ResourceLoader.getResources("com.polydes.scenelink");
+	
 	private static HashMap<String, Cursor> cursors;
 	
 	public static void setCursor(JComponent comp, String url)
@@ -26,7 +28,7 @@ public class CursorUtil
 		if(!cursors.containsKey(url))
 		{
 			Toolkit toolkit = Toolkit.getDefaultToolkit();
-			Image image = Resources.loadIcon("arrows/" + url + ".png").getImage();
+			Image image = res.loadIcon("arrows/" + url + ".png").getImage();
 			Cursor c = toolkit.createCustomCursor(image , new Point(8, 8), url);
 			cursors.put(url, c);
 		}
