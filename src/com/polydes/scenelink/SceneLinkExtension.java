@@ -15,10 +15,12 @@ import com.polydes.scenelink.ui.MainPage;
 import com.polydes.scenelink.ui.combos.PageComboModel;
 import com.polydes.scenelink.util.ColorUtil;
 
+import stencyl.sw.SW;
 import stencyl.sw.ext.GameExtension;
 import stencyl.sw.ext.OptionsPanel;
 import stencyl.sw.util.FileHelper;
 import stencyl.sw.util.Locations;
+import stencyl.sw.util.WorkerPriorityQueue;
 
 public class SceneLinkExtension extends GameExtension
 {
@@ -135,7 +137,7 @@ public class SceneLinkExtension extends GameExtension
 	public void onInstalledForGame()
 	{
 		if(detectOldInstall())
-			updateFromVersion(1);
+			updateFromVersion(1, SW.get().getExtensionManager().getExtensionFormatUpdates());
 		
 	}
 	
@@ -151,14 +153,16 @@ public class SceneLinkExtension extends GameExtension
 	}
 
 	@Override
-	public void updateFromVersion(int fromVersion)
+	public void updateFromVersion(int fromVersion, WorkerPriorityQueue updateQueue)
 	{
 		if(fromVersion <= 1)
 		{
-			File oldExtrasFolder = new File(Locations.getGameLocation(getGame()) + "extras/[ext] scene link");
-			
-			FileHelper.copyDirectory(oldExtrasFolder, getExtrasFolder());
-			FileHelper.delete(oldExtrasFolder);
+			updateQueue.add(() -> {
+				File oldExtrasFolder = new File(Locations.getGameLocation(getGame()) + "extras/[ext] scene link");
+				
+				FileHelper.copyDirectory(oldExtrasFolder, getExtrasFolder());
+				FileHelper.delete(oldExtrasFolder);
+			});
 		}
 	}
 	
