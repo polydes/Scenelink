@@ -201,7 +201,7 @@ public class MainPage extends JPanel
         button.setMargin(new Insets(3, 5, 3, 5));
         button.setIconTextGap(4);
         
-        if(Util.isMacOSX() && Util.isJava16orNewer())
+        if(Util.isMacOSX() && Util.isJava6orNewer())
 		{
         	button.setBorder(BorderFactory.createEmptyBorder(3, 5, 3, 5));
 		}
