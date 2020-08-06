@@ -26,7 +26,7 @@ import com.polydes.scenelink.io.Images;
 import com.polydes.scenelink.util.ColorUtil;
 import com.polydes.scenelink.util.CursorUtil;
 
-import stencyl.sw.SW;
+import misc.ModifierTracker;
 
 
 public class LinkPage extends JComponent implements MouseMotionListener, MouseListener, KeyListener, PropertyChangeListener
@@ -631,7 +631,7 @@ public class LinkPage extends JComponent implements MouseMotionListener, MouseLi
 	
 	private boolean align()
 	{
-		return alignToGrid ^ SW.get().isShiftDown();
+		return alignToGrid ^ ModifierTracker.isShiftDown();
 	}
 
 	@Override
